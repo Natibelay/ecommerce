@@ -1,7 +1,8 @@
-import { prisma } from "../../lib/prisma.ts";
-import Navbar from "../../components/navbar/navbar";
-import Footer from "../../components/navbar/footer";
-import ShopClient from "./ShopClient"; // <- client component
+// /app/shop/page.tsx
+import { prisma } from "@/lib/prisma";
+import Navbar from "@/components/navbar/navbar";
+import Footer from "@/components/navbar/footer";
+import ShopClient from "./ShopClient"; // client component
 
 export default async function ShopPage() {
   const products = await prisma.product.findMany({
@@ -18,7 +19,6 @@ export default async function ShopPage() {
     image: p.imageData
       ? `data:image/jpeg;base64,${Buffer.from(p.imageData).toString("base64")}`
       : "/placeholder.jpg",
-    // <- do NOT include `imageData` anymore
   }));
 
   return (
