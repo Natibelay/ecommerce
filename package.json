@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "prisma:seed": "ts-node prisma/seed.ts",
-    "build": "tsconfig-paths && next build"
+  
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
