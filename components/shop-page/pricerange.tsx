@@ -1,62 +1,57 @@
-"use client";
+"use client"; // ensure client component
 
-import React from "react";
-import { Range, getTrackBackground } from "react-range";
+import { useState } from "react";
+import { Range } from "react-range";
 
-interface PriceSectionProps {
-  values: number[];
-  onChange: (values: number[]) => void;
-  min?: number;
-  max?: number;
-}
+const PRICE_MIN = 0;
+const PRICE_MAX = 1000;
+const STEP = 1;
 
-const PriceSection: React.FC<PriceSectionProps> = ({
-  values,
-  onChange,
-  min = 0,
-  max = 250,
-}) => {
+export default function PriceRange() {
+  const [values, setValues] = useState([200, 800]);
+
   return (
-    <div className="mb-5">
-      <h3 className="text-black font-bold text-xl mb-3">Price</h3>
-
+    <div className="w-full px-4 py-6">
       <Range
+        step={STEP}
+        min={PRICE_MIN}
+        max={PRICE_MAX}
         values={values}
-        step={1}
-        min={min}
-        max={max}
-        onChange={onChange}
-        renderTrack={({ props, children }) => (
-          <div
-            {...props}
-            className="h-2 w-full rounded-full"
-            style={{
-              ...props.style,
-              background: getTrackBackground({
-                values,
-                colors: ["#ddd", "#000", "#ddd"],
-                min,
-                max,
-              }),
-            }}
-          >
-            {children}
-          </div>
-        )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            className="h-5 w-5 bg-black rounded-full cursor-pointer"
-          />
-        )}
+        onChange={(vals) => setValues(vals)}
+        renderTrack={({ props, children }) => {
+          const { key, ...rest } = props; // remove key from spread
+          return (
+            <div
+              key={key} // pass key directly
+              {...rest} // spread remaining props
+              className="h-2 w-full bg-gray-300 rounded-full relative"
+            >
+              <div
+                className="absolute h-2 bg-black rounded-full"
+                style={{
+                  left: `${((values[0] - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100}%`,
+                  width: `${((values[1] - values[0]) / (PRICE_MAX - PRICE_MIN)) * 100}%`,
+                }}
+              />
+              {children}
+            </div>
+          );
+        }}
+        renderThumb={({ props }) => {
+          const { key, ...rest } = props; // remove key from spread
+          return (
+            <div
+              key={key} // pass key directly
+              {...rest} // spread other props
+              className="h-5 w-5 bg-black rounded-full cursor-pointer flex items-center justify-center"
+            />
+          );
+        }}
       />
-
-      <div className="flex justify-between mt-2 text-gray-600 text-sm">
+      <div className="mt-4 flex justify-between text-sm text-gray-700">
         <span>${values[0]}</span>
         <span>${values[1]}</span>
       </div>
     </div>
   );
-};
-
-export default PriceSection;
+}

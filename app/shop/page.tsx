@@ -9,10 +9,16 @@ export default async function ShopPage() {
   });
 
   const productsWithImages = products.map((p) => ({
-    ...p,
+    id: p.id,
+    name: p.name,
+    price: p.price,
+    description: p.description,
+    category: p.category,
+    createdAt: p.createdAt,
     image: p.imageData
       ? `data:image/jpeg;base64,${Buffer.from(p.imageData).toString("base64")}`
       : "/placeholder.jpg",
+    // <- do NOT include `imageData` anymore
   }));
 
   return (
