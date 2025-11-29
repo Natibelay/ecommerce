@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../../../lib/prisma.ts";
 import Link from "next/link";
 import DeleteButton from "./Deletebuton.tsx"; 
 

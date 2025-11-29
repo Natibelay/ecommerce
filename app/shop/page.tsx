@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../../lib/prisma.ts";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/navbar/footer";
 import ShopClient from "./ShopClient"; // <- client component
