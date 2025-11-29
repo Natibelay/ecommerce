@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { prisma } from "../lib/prisma.ts";
+import { prisma } from "@lib/prisma";
 
 async function main() {
   const products = [
