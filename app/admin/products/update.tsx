@@ -1,4 +1,4 @@
-import prisma from "@/prisma";
+import {prisma} from "@/prisma";
 
 export default async function EditProduct({ params }: any) {
   const product = await prisma.product.findUnique({
