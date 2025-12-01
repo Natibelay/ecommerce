@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { prisma } from "@/prisma";
+=======
+import { prisma } from "@/lib/prisma";
+>>>>>>> cfdefb73ee5c785d72ddd444483f1e66a8d016be
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/navbar/footer";
 import ShopClient from "./ShopClient"; // <- client component
