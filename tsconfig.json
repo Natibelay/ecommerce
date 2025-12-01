@@ -11,28 +11,16 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-<<<<<<< HEAD
     "module": "esnext",
     "moduleResolution": "node",
-=======
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
->>>>>>> cfdefb73ee5c785d72ddd444483f1e66a8d016be
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-<<<<<<< HEAD
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "./lib/*"
-=======
-    "allowImportingTsExtensions": true, // <-- important for importing .ts files directly
-    "paths": {
-      "@/*": [
-        "./*"
->>>>>>> cfdefb73ee5c785d72ddd444483f1e66a8d016be
       ]
     },
     "plugins": [
@@ -46,12 +34,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-<<<<<<< HEAD
+    ".next/dev/types/**/*.ts",
+    "app/admin/products/add/page.tsx",
+    "app/admin/products"
   ],
-=======
-, "app/admin/products/add/page.tsx", "app/admin/products"  ],
->>>>>>> cfdefb73ee5c785d72ddd444483f1e66a8d016be
   "exclude": [
     "node_modules"
   ]

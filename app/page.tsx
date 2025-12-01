@@ -3,11 +3,7 @@ import Navbar from "../components/navbar/navbar";
 import Footer from "../components/navbar/footer";
 
 import ProductCard, { Product } from "../components/shop-page/Productcard";
-<<<<<<< HEAD
 import { prisma } from "@/prisma";
-=======
-import { prisma } from "@/lib/prisma";
->>>>>>> cfdefb73ee5c785d72ddd444483f1e66a8d016be
 import Image from "next/image";
 import Link from "next/link";
 

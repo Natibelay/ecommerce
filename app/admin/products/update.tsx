@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import prisma from "@/prisma";
-=======
-import prisma from "@lib/prisma";
->>>>>>> cfdefb73ee5c785d72ddd444483f1e66a8d016be
 
 export default async function EditProduct({ params }: any) {
   const product = await prisma.product.findUnique({
