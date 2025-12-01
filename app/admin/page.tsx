@@ -1,4 +1,5 @@
 //read list of product import prisma from "@/lib/prisma";
+import {prisma} from "@/prisma";
 
 export default async function AdminProductsPage() {
   const products = await prisma.product.findMany();
